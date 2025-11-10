@@ -1,4 +1,5 @@
-# Experiment 4: Aggregate Functions, Group By and Having Clause
+
+'[;PLOKIMJU# Experiment 4: Aggregate Functions, Group By and Having Clause
 
 ## AIM
 To study and implement aggregate functions, GROUP BY, and HAVING clause with suitable examples.
@@ -38,123 +39,154 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
+<img width="1080" height="579" alt="image" src="https://github.com/user-attachments/assets/2db55641-827a-4852-8ea6-82c47ecd3bce" />
+
 
 ```sql
--- Paste your SQL code below for Question 1
+select Specialty ,count(Specialty) as TotalDocto from Doctors
+group by Specialty;
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="748" height="745" alt="image" src="https://github.com/user-attachments/assets/5a85306d-c30f-4355-803d-30b5ae540b56" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+<img width="587" height="598" alt="image" src="https://github.com/user-attachments/assets/73ce2bc5-dd8f-4270-a908-8373d1a55e44" />
+
 
 ```sql
--- Paste your SQL code below for Question 2
+select PatientID,count(AppointmentID) as TotalAppointments from Appointments
+group by PatientID;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="694" height="695" alt="image" src="https://github.com/user-attachments/assets/c40f43d6-a2cd-4d63-8dca-40f22a8cf0aa" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+<img width="984" height="500" alt="image" src="https://github.com/user-attachments/assets/f9c9f986-3ceb-4e3b-88cd-ec4f17454398" />
+
 
 ```sql
--- Paste your SQL code below for Question 3
+select PatientID,count(Medications)as AvgMedications from MedicalRecords
+group by PatientID;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="641" height="672" alt="image" src="https://github.com/user-attachments/assets/33737294-09b3-476f-9bd1-8b08f78bcb54" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+<img width="670" height="490" alt="image" src="https://github.com/user-attachments/assets/85696248-e444-406c-b80b-3a8efc85eb53" />
+
 
 ```sql
--- Paste your SQL code below for Question 4
+select name as Employee_Name,age as Age from employee
+group by age limit 1;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="619" height="370" alt="image" src="https://github.com/user-attachments/assets/c16ca65a-b63b-4671-b2d9-69e64cd11276" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+<img width="678" height="528" alt="image" src="https://github.com/user-attachments/assets/72355c9b-8018-4b52-b17d-e88412a0604c" />
+
 
 ```sql
--- Paste your SQL code below for Question 5
+select name as fruit_name,inventory as lowest_quantity from fruits
+group by inventory limit 1;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="646" height="367" alt="image" src="https://github.com/user-attachments/assets/3de8d8ee-8207-4970-b06d-440aa5ce48ed" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+<img width="1019" height="461" alt="image" src="https://github.com/user-attachments/assets/c2f0ceaf-01cc-4845-bada-490c47132303" />
+
 
 ```sql
--- Paste your SQL code below for Question 6
+select max(age)-min(age) as age_difference from employee
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="435" height="368" alt="image" src="https://github.com/user-attachments/assets/b6fd438f-5fd2-41cd-9c00-63ffb5b60bea" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+<img width="951" height="484" alt="image" src="https://github.com/user-attachments/assets/6b3ab61d-2fa3-4ffc-b907-ddae8e3d6aee" />
+
 
 ```sql
--- Paste your SQL code below for Question 7
+select COUNT(*) as COUNT from customer where city <> 'Noida';
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="351" height="377" alt="image" src="https://github.com/user-attachments/assets/d9263d69-f0d2-48a2-b42d-1c682b38a3bf" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+<img width="1200" height="569" alt="image" src="https://github.com/user-attachments/assets/b7e626c2-dd62-48bb-a743-e1f18e7800d0" />
+
 
 ```sql
--- Paste your SQL code below for Question 8
+select city,sum(income) as Income from employee
+group by city
+having sum(income)>200000;
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="565" height="594" alt="image" src="https://github.com/user-attachments/assets/8480a939-98e0-4606-a900-4cf08fc3b025" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+<img width="1197" height="477" alt="image" src="https://github.com/user-attachments/assets/45f71446-aab4-4a1e-baaf-e09cf1b8e4f6" />
+
 
 ```sql
--- Paste your SQL code below for Question 9
+select (age/5)*5 as age_group,SUM(salary) from customer1
+group by age_group
+having sum(salary)>5000;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="591" height="428" alt="image" src="https://github.com/user-attachments/assets/425eb761-d9a5-48c4-acb3-12896de6c87f" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+<img width="1185" height="455" alt="image" src="https://github.com/user-attachments/assets/81ef5d15-2a2a-4b75-ae6a-9ae28dcf7182" />
+
 
 ```sql
--- Paste your SQL code below for Question 10
+select jdate,AVG(workhour) from employee1
+group by jdate
+having avg(workhour)<10;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="629" height="411" alt="image" src="https://github.com/user-attachments/assets/38fe2cfc-0fe2-4c96-9d1c-4c99089dcbda" />
+
 
 
 ## RESULT
