@@ -76,8 +76,50 @@ END;
 - Use a simple cursor to fetch and display employee names and designations.
 - Implement exception handling to catch the relevant exceptions and display appropriate messages.
 
+**PROGRAM:**
+```
+
+CREATE TABLE employees (
+   emp_id      NUMBER PRIMARY KEY, 
+   emp_name    VARCHAR2(50),
+   designation VARCHAR2(50)
+);
+
+INSERT INTO employees VALUES (1, 'Alice', 'Manager');
+INSERT INTO employees VALUES (2, 'Bob', 'Developer');
+INSERT INTO employees VALUES (3, 'Clara', 'Analyst');
+COMMIT;
+
+DECLARE
+   CURSOR emp_cur IS
+      SELECT emp_name, designation FROM employees;
+   v_emp_name employees.emp_name%TYPE;
+   v_designation employees.designation%TYPE;
+   no_employee_found EXCEPTION;
+   has_data BOOLEAN := FALSE;
+BEGIN
+   OPEN emp_cur;
+   LOOP
+      FETCH emp_cur INTO v_emp_name, v_designation;
+      EXIT WHEN emp_cur%NOTFOUND;
+      has_data := TRUE;
+      DBMS_OUTPUT.PUT_LINE('Name: ' || v_emp_name || ', Designation: ' || v_designation);
+   END LOOP;
+   CLOSE emp_cur;
+   
+   IF NOT has_data THEN
+      RAISE no_employee_found;
+   END IF;
+EXCEPTION
+   WHEN no_employee_found OR NO_DATA_FOUND THEN
+      DBMS_OUTPUT.PUT_LINE('No employee records found.');
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Unexpected error: ' || SQLERRM);
+END;
+```
 **Output:**  
-The program should display the employee details or an error message.
+
+<img width="343" height="103" alt="image" src="https://github.com/user-attachments/assets/f5ff2412-7fcb-41e7-8497-b7aeaf61d026" />
 
 ---
 
